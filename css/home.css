@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center; /* horizontal */
+    align-items: center;     /* vertical */
+
+    background-color: #262f44; /* opcional, fica bonito */
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #262f44, #1b2233);
+}
+#container {
+    background-color: #28385a;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    width: 100%;
+    max-width: 900px;
+
+    margin: 20px auto; /* 🔥 isso resolve */
+    border: #1b2233 1px solid;
+}
+h1{
+    text-align: center;
+    color: #000000;
+}
+#desc{
+    text-align: center;
+    color: #000000;
+}
+.gasto, .valor {
+    margin-top: 20px;
+    background-color: #3e4f72;
+    padding: 20px;
+}
+input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #262f44;
+    color: white;
+    cursor: pointer;
+}
+.linha {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* lados */
+.esquerda, .direita {
+    flex: 1;
+}
+
+/* estilo tipo card (igual taskflow vibe) */
+.esquerda, .direita {
+    background-color: #3e4f72;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* direita (lista) */
+.direita {
+    max-height: 300px;
+    overflow-y: auto;
+}
