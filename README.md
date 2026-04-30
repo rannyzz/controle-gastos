@@ -52,7 +52,6 @@ login/
 4. Acesse no navegador:
 http://localhost:(portadoxampp)/login/index.html
 
-
 ---
 
 ## 🗄️ Banco de dados
@@ -75,7 +74,6 @@ Senha: 123456
 
 ## 👁Observações
 
-
 ---
 
 Os dados de gastos são salvos no navegador (LocalStorage)
@@ -84,14 +82,11 @@ Projeto feito para fins de aprendizado
 
 ## ✍Autor
 
-
 ---
 
 Igor Morato
 
 ## ⭐ Status
 
-
 ---
-
 🚧 Em desenvolvimento / melhoria contínua
