@@ -1,0 +1,198 @@
+/* ============================
+   BASE & BODY
+   ============================ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    -webkit-text-fill-color: white;
+    transition: background-color 5000s ease-in-out 0s;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1b2233;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+/* ============================
+   CARD GLASSMORPHISM
+   ============================ */
+#container {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
+    border-radius: 22px;
+    padding: 44px 36px 36px;
+    width: 320px;
+    text-align: center;
+}
+
+/* ============================
+   AVATAR NO TOPO
+   ============================ */
+
+h1 {
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+/* ============================
+   FORMULÁRIO
+   ============================ */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+br { display: none; }
+
+/* ============================
+   CAMPOS COM ÍCONE
+   ============================ */
+.campo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.22);
+    margin-bottom: 22px;
+    padding-bottom: 10px;
+    transition: border-color 0.3s;
+}
+
+.campo-wrapper:focus-within {
+    border-bottom-color: rgba(255, 255, 255, 0.7);
+}
+
+.campo-wrapper .icone {
+    opacity: 0.45;
+    flex-shrink: 0;
+    font-size: 15px;
+}
+
+input[type="text"],
+input[type="password"] {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    width: 100%;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+/* ============================
+   LINHA: REMEMBER ME + FORGOT
+   ============================ */
+.linha-opcoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 26px;
+}
+
+.revelar-senha-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 300;
+}
+
+input[type="checkbox"] {
+    accent-color: #6c7faa;
+    cursor: pointer;
+}
+
+a {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 300;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover { color: rgba(255, 255, 255, 0.8); }
+
+/* ============================
+   BOTÃO LOGIN
+   ============================ */
+input[type="submit"] {
+    background: linear-gradient(135deg, #4a5b8f, #6c7faa);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+    box-shadow: 0 4px 20px rgba(108, 127, 170, 0.35);
+    margin-bottom: 14px;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(135deg, #3d4e7a, #5a6b8a);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(108, 127, 170, 0.5);
+}
+
+/* ============================
+   BOTÃO CRIAR CONTA
+   ============================ */
+button {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    border-radius: 30px;
+    padding: 11px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: white;
+}
+h3 {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 300;
+    text-decoration: none;
+    transition: color 0.2s;
+}

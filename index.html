@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login | Sistema de Login</title>
 </head>
 <body>
     <div id="container">
-        <center>
-            <h1>Login</h1>
-        </center>
+        <h1>Login</h1>
+        
         <form method="post" action="bd/bd.php">
-            <br><input type="text" name="email" placeholder="Digite seu endereço de email..."><br><br>
-            <br><input type="password" id="senha" name="password" placeholder="Digite sua senha..."><br><br>
-            <a href="esqueceusenha.html">Esqueci minha senha</a><br><br>
-            <input type="checkbox" name="revelar_senha" id="revelar_senha" onclick="revelarSenha()">
-            <label for="revelar_senha">Revelar senha</label><br><br>
-            <center>
-                <input type="submit" id="logar" value="LOGIN"><br><br>
-                <button type="button" onclick="window.location.href='cadastro.html'">Criar conta</button>
-            </center>
+            <div class="campo-wrapper">
+                <span class="icone">✉</span>
+                <input type="text" name="email" placeholder="Endereço de email...">
+            </div>
+
+            <div class="campo-wrapper">
+                <span class="icone">🔒</span>
+                <input type="password" id="senha" name="password" placeholder="Senha..." autocomplete="new-password">
+            </div>
+
+            <div class="linha-opcoes">
+                <div class="revelar-senha-container">
+                    <input type="checkbox" name="revelar_senha" id="revelar_senha" onclick="revelarSenha()">
+                    <label for="revelar_senha">Revelar senha</label>
+                </div>
+                <a href="esqueceusenha.html">Esqueci minha senha</a>
+            </div>
+            
+            <input type="submit" id="logar" value="LOGIN">
+            <h3><p>Crie uma conta agora mesmo!</p></h3>
+            <button type="button" onclick="window.location.href='cadastro.html'">Criar conta</button>
         </form>
     </div>
 </body>

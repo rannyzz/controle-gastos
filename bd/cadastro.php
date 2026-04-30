@@ -1,9 +1,10 @@
 <?php
     $conexao = mysqli_connect("localhost", "root", "", "bdlogin");
+    $nome = $_POST['nome'];
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sql = "INSERT INTO tblogin (email, senha) VALUES ('$email', '$password')";
+    $sql = "INSERT INTO tblogin (nome, email, senha) VALUES ('$nome', '$email', '$password')";
     if (mysqli_query($conexao, $sql)) {
         header("Location: ../index.html");
         exit;

@@ -4,12 +4,12 @@
     <link rel="stylesheet" href="css/home.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Controle de Gastos | Sistema de Gerenciamento Financeiro</title>
 </head>
 <body>
     <div id="container">
         <h1>Controle de Gastos</h1>
-        <p id="desc">Bem-vindo ao Controle de Gastos! Esta é a página inicial do nosso sistema de gerenciamento financeiro. Aqui, você pode acompanhar suas despesas, criar orçamentos e analisar seus gastos para tomar decisões financeiras mais informadas. Explore as funcionalidades disponíveis e comece a organizar suas finanças hoje mesmo!</p><br>
+       <p id="desc">Organize seus gastos e tome decisões financeiras melhores.</p>
         <center>
                 <h2>Seu Saldo</h2>
             <h3 id="saldo">Saldo: R$0,00</h3>
@@ -19,13 +19,13 @@
         <div class="esquerda">
             <h3>Adicionar Gasto/Valor Recebido</h3>
             <div class="gasto">
-                <input type="text" id="nome_gasto" placeholder="Digite o nome do gasto..."><br><br>
-                <input type="number" id="valor_gasto" placeholder="Digite o valor do gasto..."><br><br>
+                <input type="text" id="nome_gasto" placeholder="Digite o nome do gasto...">
+                <input type="number" id="valor_gasto" placeholder="Digite o valor do gasto...">
                 <button onclick="adicionarGasto()">Adicionar Gasto</button>
             </div>
 
             <div class="valor">
-                <input type="number" id="valor_inserido" placeholder="Digite o valor a ser inserido..."><br><br>
+                <input type="number" id="valor_inserido" placeholder="Digite o valor a ser inserido...">
                 <button onclick="adicionarValor()">Adicionar Valor</button>
             </div>
         </div>
@@ -34,7 +34,6 @@
         <div class="direita">
             <h3>Gastos</h3>
             <p id="gastos"></p><br>
-            <button onclick="apagar()">Apagar Gastos</button>
         </div>
 
     </div>
