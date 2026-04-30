@@ -80,13 +80,14 @@ Os dados de gastos são salvos no navegador (LocalStorage)
 Futuramente pode ser integrado totalmente com banco de dados
 Projeto feito para fins de aprendizado
 
-## ✍Autor
-
 ---
+
+## ✍Autor
 
 Igor Morato
 
+---
+
 ## ⭐ Status
 
----
 🚧 Em desenvolvimento / melhoria contínua
