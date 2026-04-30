@@ -72,9 +72,9 @@ CREATE TABLE tblogin (
 Email: igor@gmail.com
 Senha: 123456
 
-## 👁Observações
-
 ---
+
+## 👁Observações
 
 Os dados de gastos são salvos no navegador (LocalStorage)
 Futuramente pode ser integrado totalmente com banco de dados
