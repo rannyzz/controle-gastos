@@ -79,7 +79,8 @@ Senha: 123456
 ## 👁Observações
 
 Os dados de gastos são salvos no navegador (LocalStorage)
-Futuramente pode ser integrado totalmente com banco de dados
+Futuramente pode ser integrado totalmente com banco de dados.
+
 Projeto feito para fins de aprendizado
 
 ---
