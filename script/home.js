@@ -1,5 +1,6 @@
 let total = Number(localStorage.getItem("total")) || 0;
 let listaGastos = JSON.parse(localStorage.getItem("listaGastos") || "[]");
+let totalEntradas = Number(localStorage.getItem("totalEntradas")) || 0;
 
 window.onload = function () {
     renderizarGastos();
@@ -8,6 +9,7 @@ window.onload = function () {
 
 function salvarDados() {
     localStorage.setItem("total", total);
+    localStorage.setItem("totalEntradas", totalEntradas);
     localStorage.setItem("listaGastos", JSON.stringify(listaGastos));
 }
 
@@ -45,12 +47,11 @@ function adicionarGasto() {
 }
 
 function deletarGasto(index) {
-    total += listaGastos[index].valor;
-    listaGastos.splice(index, 1);
+    listaGastos.splice(index, 1); // remove da lista sem devolver o valor
 
     salvarDados();
     renderizarGastos();
-    atualizarSaldo();
+    // sem atualizarSaldo() aqui, saldo não muda
 }
 
 function adicionarValor() {
@@ -60,6 +61,7 @@ function adicionarValor() {
         alert("Digite um valor válido!");
     } else {
         total += valor;
+        totalEntradas += valor; // salva as entradas separado
         atualizarSaldo();
         salvarDados();
 
@@ -82,8 +84,10 @@ function atualizarSaldo() {
 
 function apagar() {
     if (confirm("Tem certeza que deseja apagar todos os gastos?")) {
+        // volta o saldo para o total de entradas (sem nenhum gasto)
+        total = totalEntradas;
         listaGastos = [];
-        total = 0;
+
         salvarDados();
         renderizarGastos();
         atualizarSaldo();
