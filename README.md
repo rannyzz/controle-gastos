@@ -50,7 +50,7 @@ login/
 2. Coloque a pasta do projeto em: C:\xampp\htdocs\
 3. Inicie o Apache e MySQL
 4. Acesse no navegador:
-http://localhost:porta do xampp/login/index.html
+http://localhost:(portadoxampp)/login/index.html
 
 
 ---
@@ -73,7 +73,7 @@ CREATE TABLE tblogin (
 Email: igor@gmail.com
 Senha: 123456
 
-## Observações
+## 👁Observações
 
 
 ---
@@ -82,7 +82,7 @@ Os dados de gastos são salvos no navegador (LocalStorage)
 Futuramente pode ser integrado totalmente com banco de dados
 Projeto feito para fins de aprendizado
 
-## Autor
+## ✍Autor
 
 
 ---
