@@ -29,6 +29,7 @@ Sistema simples de controle financeiro com login de usuário, cadastro e gerenci
 
 ## 📁 Estrutura do projeto
 login/
+
 ├── index.html # Tela de login
 ├── cadastro.html # Tela de cadastro
 ├── home.html # Sistema de controle de gastos
