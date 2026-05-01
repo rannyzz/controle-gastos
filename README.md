@@ -42,8 +42,8 @@ login/
 │   └── home.js
 └── bd/
     ├── bd.php        # Login
-    └── cadastro.php  # Cadastro
-    └──esqueceusenha.php # Esqueceu a senha
+    ├── cadastro.php  # Cadastro
+    ├──esqueceusenha.php # Esqueceu a senha
     └──logout.php # Botão para sair da sessão
 ```
 
