@@ -1,3 +1,7 @@
+<?php
+    $erro = isset($_GET['erro']) ? $_GET['erro'] : "";
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -29,10 +33,13 @@
                 </div>
                 <a href="esqueceusenha.html">Esqueci minha senha</a>
             </div>
-            
             <input type="submit" id="logar" value="LOGIN"> <!-- Botão de login -->
+            <?php
+            if($erro != ""): ?>
+                <p class="aviso"><?php echo $erro; ?></p>
+            <?php endif; ?>
             <h3><p>Crie uma conta agora mesmo!</p></h3>
-            <button type="button" onclick="window.location.href='cadastro.html'">Criar conta</button>
+            <button type="button" onclick="window.location.href='cadastro.php'">Criar conta</button>
         </form>
     </div>
 </body>

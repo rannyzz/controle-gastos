@@ -5,7 +5,7 @@
 
     $sql = "UPDATE tblogin SET senha = '$password_new' WHERE email = '$email'";
     if (mysqli_query($conexao, $sql)) {
-        header("Location: ../index.html");
+        header("Location: ../index.php");
         exit;
     } else {
         echo "Erro ao criar conta: " . mysqli_error($conexao);

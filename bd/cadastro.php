@@ -6,7 +6,7 @@
 
     $sql = "INSERT INTO tblogin (nome, email, senha) VALUES ('$nome', '$email', '$password')";
     if (mysqli_query($conexao, $sql)) {
-        header("Location: ../index.html");
+        header("Location: ../index.php");
         exit;
     } else {
         echo "Erro ao criar conta: " . mysqli_error($conexao);

@@ -196,3 +196,9 @@ h3 {
     text-decoration: none;
     transition: color 0.2s;
 }
+.aviso {
+    color: #e05c5c;
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}

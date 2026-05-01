@@ -1,20 +1,25 @@
 <?php
+session_start();
 $conexao = mysqli_connect("localhost", "root", "", "bdlogin");
 
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$sql = "SELECT * FROM tblogin WHERE email='$email' AND senha='$password'";
 if (empty($email) || empty($password)) {
-    header("Location: ../index.html?error=emptyfields");
+    header("Location: ../index.php?erro=Preencha todos os campos!");
     exit;
 }
+
+$sql = "SELECT * FROM tblogin WHERE email='$email' AND senha='$password'";
 $result = mysqli_query($conexao, $sql);
+
 if (mysqli_num_rows($result) > 0) {
-    header("Location: ../home.html");
+    $usuario = mysqli_fetch_assoc($result);
+    $_SESSION['nome'] = $usuario['nome'];
+    header("Location: ../home.php");
     exit;
 } else {
-    header("Location: ../index.html?error=invalidcredentials");
+    header("Location: ../index.php?erro=Email ou senha incorretos.");
     exit;
 }
 ?>

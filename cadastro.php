@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+F<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <link rel="stylesheet" href="css/styles.css">
@@ -28,7 +28,7 @@
             <input type="submit" id="cadastrar" value="Cadastrar">
         </form>
 
-        <button onclick="window.location.href='index.html'">Voltar</button>
+        <button onclick="window.location.href='index.php'">Voltar</button>
     </div>
 </body>
 </html>

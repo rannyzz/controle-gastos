@@ -30,6 +30,7 @@ body {
     padding: 40px;
     width: 100%;
     max-width: 900px;
+    position: relative;
 }
 
 /* ============================
@@ -260,4 +261,17 @@ button:hover {
     color: #e05c5c;
     transform: none;
     box-shadow: none;
+}#btn-logout {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 13px;
+    font-weight: 300;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+#btn-logout:hover {
+    color: #e05c5c;
 }

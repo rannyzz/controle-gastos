@@ -24,7 +24,7 @@
             <input type="submit" id="cadastrar" value="Redefinir senha">
         </form>
 
-        <button onclick="window.location.href='index.html'">Voltar</button>
+        <button onclick="window.location.href='index.php'">Voltar</button>
     </div>
 </body>
 </html>

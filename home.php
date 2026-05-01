@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['nome'])) {
+    header("Location: index.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-Br">
 <head>
@@ -9,6 +16,7 @@
 <body>
     <div id="container">
         <h1>Controle de Gastos</h1>
+        <p>Olá, <?php echo $_SESSION['nome']; ?>!</p>
        <p id="desc">Organize seus gastos e tome decisões financeiras melhores.</p>
         <center>
                 <h2>Seu Saldo</h2>
@@ -35,6 +43,7 @@
             <h3>Gastos</h3>
             <p id="gastos"></p><br>
         </div>
+        <a href="bd/logout.php" id="btn-logout">Sair</a>
 
     </div>
 </div>
