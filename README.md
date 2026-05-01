@@ -30,9 +30,10 @@ Sistema simples de controle financeiro com login de usuário, cadastro e gerenci
 ## 📁 Estrutura do projeto
 ```text
 login/
-├── index.html        # Tela de login
-├── cadastro.html     # Tela de cadastro
-├── home.html         # Sistema de controle de gastos
+├── index.php        # Tela de login
+├── cadastro.php     # Tela de cadastro
+├── home.php         # Sistema de controle de gastos
+├── esqueceusenha.php #Área de refazer sua senha    
 ├── css/
 │   ├── style.css
 │   └── home.css
@@ -42,6 +43,8 @@ login/
 └── bd/
     ├── bd.php        # Login
     └── cadastro.php  # Cadastro
+    └──esqueceusenha.php # Esqueceu a senha
+    └──logout.php # Botão para sair da sessão
 ```
 
 ---
