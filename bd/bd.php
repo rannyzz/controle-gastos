@@ -16,6 +16,7 @@ $result = mysqli_query($conexao, $sql);
 if (mysqli_num_rows($result) > 0) {
     $usuario = mysqli_fetch_assoc($result);
     $_SESSION['nome'] = $usuario['nome'];
+    $_SESSION['email'] = $usuario['email']; // salva email na sessão
     header("Location: ../home.php");
     exit;
 } else {

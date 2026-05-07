@@ -1,57 +1,88 @@
-let total = Number(localStorage.getItem("total")) || 0;
-let listaGastos = JSON.parse(localStorage.getItem("listaGastos") || "[]");
-let totalEntradas = Number(localStorage.getItem("totalEntradas")) || 0;
+let total = 0;
+let totalEntradas = 0;
+let listaGastos = []; // { id, nome, valor }
 
+// Carrega os dados do banco ao abrir a página
 window.onload = function () {
-    renderizarGastos();
-    atualizarSaldo();
-};
+    fetch("bd/buscar_gastos.php")
+        .then(r => r.json())
+        .then(data => {
+            if (data.erro) return;
 
-function salvarDados() {
-    localStorage.setItem("total", total);
-    localStorage.setItem("totalEntradas", totalEntradas);
-    localStorage.setItem("listaGastos", JSON.stringify(listaGastos));
-}
+            // Reconstrói entradas
+            data.entradas.forEach(function (e) {
+                let valor = parseFloat(e.valor);
+                total += valor;
+                totalEntradas += valor;
+            });
+
+            // Reconstrói gastos
+            data.gastos.forEach(function (g) {
+                let valor = parseFloat(g.valor);
+                listaGastos.push({ id: g.id, nome: g.nome, valor: valor });
+                total -= valor;
+            });
+
+            renderizarGastos();
+            atualizarSaldo();
+        });
+};
 
 function renderizarGastos() {
     let container = document.getElementById("gastos");
     container.innerHTML = "";
 
-    listaGastos.forEach(function (gasto, index) {
+    listaGastos.forEach(function (gasto) {
         container.innerHTML += `
             <div class="item-gasto">
                 <span>${gasto.nome} - R$ ${gasto.valor.toFixed(2)}</span>
-                <button class="btn-deletar" onclick="deletarGasto(${index})">✕</button>
+                <button class="btn-deletar" onclick="deletarGasto(${gasto.id}, ${gasto.valor})">✕</button>
             </div>
         `;
     });
 }
 
 function adicionarGasto() {
-    let nome = document.getElementById("nome_gasto").value;
+    let nome  = document.getElementById("nome_gasto").value;
     let valor = Number(document.getElementById("valor_gasto").value);
 
     if (nome === "" || valor <= 0) {
         alert("Preencha os campos do gasto corretamente!");
-    } else {
-        listaGastos.push({ nome: nome, valor: valor });
-        total -= valor;
-
-        salvarDados();
-        renderizarGastos();
-        atualizarSaldo();
-
-        document.getElementById("nome_gasto").value = "";
-        document.getElementById("valor_gasto").value = "";
+        return;
     }
+
+    let formData = new FormData();
+    formData.append("nome", nome);
+    formData.append("valor", valor);
+    formData.append("tipo", "gasto");
+
+    fetch("bd/salvar_gasto.php", { method: "POST", body: formData })
+        .then(r => r.json())
+        .then(data => {
+            if (data.sucesso) {
+                listaGastos.push({ id: data.id, nome: nome, valor: valor });
+                total -= valor;
+                renderizarGastos();
+                atualizarSaldo();
+                document.getElementById("nome_gasto").value = "";
+                document.getElementById("valor_gasto").value = "";
+            }
+        });
 }
 
-function deletarGasto(index) {
-    listaGastos.splice(index, 1); // remove da lista sem devolver o valor
+function deletarGasto(id, valor) {
+    let formData = new FormData();
+    formData.append("id", id);
 
-    salvarDados();
-    renderizarGastos();
-    // sem atualizarSaldo() aqui, saldo não muda
+    fetch("bd/deletar_gasto.php", { method: "POST", body: formData })
+        .then(r => r.json())
+        .then(data => {
+            if (data.sucesso) {
+                listaGastos = listaGastos.filter(g => g.id != id);
+                renderizarGastos();
+                // mantém o comportamento original: deletar não devolve saldo
+            }
+        });
 }
 
 function adicionarValor() {
@@ -59,14 +90,24 @@ function adicionarValor() {
 
     if (valor <= 0) {
         alert("Digite um valor válido!");
-    } else {
-        total += valor;
-        totalEntradas += valor; // salva as entradas separado
-        atualizarSaldo();
-        salvarDados();
-
-        document.getElementById("valor_inserido").value = "";
+        return;
     }
+
+    let formData = new FormData();
+    formData.append("nome", "Entrada");
+    formData.append("valor", valor);
+    formData.append("tipo", "entrada");
+
+    fetch("bd/salvar_gasto.php", { method: "POST", body: formData })
+        .then(r => r.json())
+        .then(data => {
+            if (data.sucesso) {
+                total += valor;
+                totalEntradas += valor;
+                atualizarSaldo();
+                document.getElementById("valor_inserido").value = "";
+            }
+        });
 }
 
 function atualizarSaldo() {
@@ -84,12 +125,18 @@ function atualizarSaldo() {
 
 function apagar() {
     if (confirm("Tem certeza que deseja apagar todos os gastos?")) {
-        // volta o saldo para o total de entradas (sem nenhum gasto)
-        total = totalEntradas;
-        listaGastos = [];
+        // deleta cada gasto do banco
+        let promessas = listaGastos.map(function (g) {
+            let formData = new FormData();
+            formData.append("id", g.id);
+            return fetch("bd/deletar_gasto.php", { method: "POST", body: formData });
+        });
 
-        salvarDados();
-        renderizarGastos();
-        atualizarSaldo();
+        Promise.all(promessas).then(function () {
+            total = totalEntradas; // volta ao total de entradas
+            listaGastos = [];
+            renderizarGastos();
+            atualizarSaldo();
+        });
     }
 }
